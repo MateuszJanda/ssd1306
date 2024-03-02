@@ -169,7 +169,7 @@ where
     SIZE: DisplaySize,
 {
     /// Convert the display into another interface mode.
-    fn into_mode<MODE2>(self, mode: MODE2) -> Ssd1306<DI, SIZE, MODE2> {
+    pub fn into_mode<MODE2>(self, mode: MODE2) -> Ssd1306<DI, SIZE, MODE2> {
         Ssd1306 {
             mode,
             addr_mode: self.addr_mode,
@@ -220,6 +220,11 @@ where
         self.addr_mode = mode;
 
         Ok(())
+    }
+
+    /// TODO
+    pub fn mode_mut(&mut self) -> &mut MODE {
+        &mut self.mode
     }
 
     /// Change the addressing mode
