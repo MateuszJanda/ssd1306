@@ -223,6 +223,16 @@ where
     }
 
     /// TODO
+    pub fn interface_mut(&mut self) -> &mut DI {
+        &mut self.interface
+    }
+
+    /// TODO
+    pub fn mode(&self) -> &MODE {
+        &self.mode
+    }
+
+    /// TODO
     pub fn mode_mut(&mut self) -> &mut MODE {
         &mut self.mode
     }
@@ -393,7 +403,8 @@ where
         Command::Invert(invert).send(&mut self.interface)
     }
 
-    fn flush_buffer_chunks(
+    /// TODO
+    pub fn flush_buffer_chunks(
         interface: &mut DI,
         buffer: &[u8],
         disp_width: usize,
